@@ -26,6 +26,6 @@ Les 7 estimations sont des propositions commerciales non vérifiées, autorisée
 
 Les formats et saveurs sont repris lorsqu’ils sont lisibles. Pour Cream of Rice, 67 portions et Golden Syrup sont visibles ; le poids exact reste à confirmer. Les composants dont le format n’est pas lisible ne reçoivent pas de poids inventé. Les arguments médicaux et promesses d’efficacité des descriptions Instagram ne sont pas repris.
 
-Les photos sont conservées sans retouche dans public/images/products/. Le cadrage CSS affiche uniquement la zone photographique et masque les commentaires et l’interface Instagram. Le fichier src/products.js associe chaque photo à sa zone de cadrage.
+Les captures originales sont conservées sans retouche dans public/images/products/{id}.png comme pièces sources. Les fichiers {id}-cutout.webp sont des visuels générés avec fond transparent à partir de ces sources : retrait de l’interface, des mains et du décor, avec reconstitution des parties cachées. Les emballages fins peuvent différer. Le catalogue et les fiches affichent uniquement ces visuels illustratifs ; la tarification reste fondée sur les originaux, jamais sur les inscriptions générées.
 
 Les prix estimatifs sont signalés sur chaque fiche, dans le panier et dans la demande WhatsApp. Le panier ne confirme pas automatiquement une vente. Les mentions de livraison offerte et de shaker cadeau sont uniquement reprises pour les offres qui les affichent ; le magasin confirme leur validité.

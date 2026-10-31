@@ -16,7 +16,7 @@ npm run build
 npm run preview
 ```
 
-Le build statique est généré dans `dist/`. Aucun secret ni service externe n’est nécessaire. Les photos du catalogue sont servies localement ; le cadrage CSS masque l’interface Instagram sans modifier les fichiers originaux. Les polices système sont utilisées sans requête externe.
+Le build statique est généré dans `dist/`. Aucun secret ni service externe n’est nécessaire. Les photos du catalogue sont servies localement ; les visuels du catalogue sont détourés et reconstitués à partir des captures fournies. Les images originales sont conservées comme sources. Les polices système sont utilisées sans requête externe.
 
 ## Cloudflare Pages
 
@@ -48,4 +48,10 @@ Le panier utilise ce catalogue et signale les prix estimatifs. Le bouton de conf
 - Le panier ouvre un lien `wa.me` avec références, variantes, quantités, prix indicatifs et sous-total. Le client complète ses coordonnées dans WhatsApp et envoie lui-même le message ; ouvrir le lien ne crée ni n’envoie une commande automatiquement et ne vide pas le panier.
 - Le bouton est désactivé lorsque le panier est vide.
 - Les liens de contact du header, du hero et du footer et le bouton WhatsApp flottant ouvrent un nouvel onglet. Aucune API, clé ni requête externe n’est ajoutée au chargement.
-- Description du profil reprise : « Qualité certifiée, confiance garantie », « الجودة والثقة أساسنا », « Livraison partout au Maroc ».
+- Description du profil reprise : « Qualité certifiée, confiance garantie », « La qualité et la confiance, nos fondations. », « Livraison partout au Maroc ».
+
+## Fiches produit et visuels
+
+Cliquer sur une photo, le nom ou une zone libre de la carte ouvre la fiche complète : visuel, marque, format, prix et provenance, conditions de livraison, choix de quantité et ajout au panier. Le bouton d’ajout rapide reste indépendant. La fiche se ferme avec Échap, le bouton de fermeture ou le fond extérieur ; « Voir mon panier » ouvre ensuite le panier et sa confirmation WhatsApp.
+
+Les fichiers `*-cutout.webp` sont des visuels générés à fond transparent à partir des captures originales. Les mains, rayonnages et interfaces ont été retirés et les parties cachées reconstituées. Les détails fins d’emballage peuvent donc différer ; ne pas les utiliser comme source pour les compositions ou dosages. Les captures originales restent archivées et les prix inchangés.

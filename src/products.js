@@ -1,4 +1,4 @@
-// Catalogue transcrit des 15 captures fournies. Les estimations ne sont pas des prix de marché vérifiés.
+// Prix estimatifs non vérifiés. Visuels détourés reconstitués à partir des captures sources.
 export const products = [
   {
     "id": 101,
@@ -20,7 +20,8 @@ export const products = [
       639
     ],
     "freeDelivery": true,
-    "offerNote": "Livraison offerte sur la publication. Offre à confirmer."
+    "offerNote": "Livraison offerte sur la publication. Offre à confirmer.",
+    "cutout": "/images/products/101-cutout.webp"
   },
   {
     "id": 102,
@@ -42,7 +43,8 @@ export const products = [
       641
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/102-cutout.webp"
   },
   {
     "id": 103,
@@ -64,7 +66,8 @@ export const products = [
       636
     ],
     "freeDelivery": true,
-    "offerNote": "Livraison offerte sur la publication. Offre à confirmer."
+    "offerNote": "Livraison offerte sur la publication. Offre à confirmer.",
+    "cutout": "/images/products/103-cutout.webp"
   },
   {
     "id": 104,
@@ -86,7 +89,8 @@ export const products = [
       634
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/104-cutout.webp"
   },
   {
     "id": 105,
@@ -108,7 +112,8 @@ export const products = [
       636
     ],
     "freeDelivery": true,
-    "offerNote": "Livraison offerte sur la publication. Offre à confirmer."
+    "offerNote": "Livraison offerte sur la publication. Offre à confirmer.",
+    "cutout": "/images/products/105-cutout.webp"
   },
   {
     "id": 106,
@@ -130,7 +135,8 @@ export const products = [
       638
     ],
     "freeDelivery": true,
-    "offerNote": "Livraison offerte sur la publication. Offre à confirmer."
+    "offerNote": "Livraison offerte sur la publication. Offre à confirmer.",
+    "cutout": "/images/products/106-cutout.webp"
   },
   {
     "id": 107,
@@ -152,7 +158,8 @@ export const products = [
       641
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/107-cutout.webp"
   },
   {
     "id": 108,
@@ -174,7 +181,8 @@ export const products = [
       636
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/108-cutout.webp"
   },
   {
     "id": 109,
@@ -196,7 +204,8 @@ export const products = [
       543
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/109-cutout.webp"
   },
   {
     "id": 110,
@@ -218,7 +227,8 @@ export const products = [
       640
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/110-cutout.webp"
   },
   {
     "id": 111,
@@ -240,7 +250,8 @@ export const products = [
       638
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/111-cutout.webp"
   },
   {
     "id": 112,
@@ -262,7 +273,8 @@ export const products = [
       598
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/112-cutout.webp"
   },
   {
     "id": 113,
@@ -284,7 +296,8 @@ export const products = [
       514
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/113-cutout.webp"
   },
   {
     "id": 114,
@@ -306,7 +319,8 @@ export const products = [
       578
     ],
     "freeDelivery": false,
-    "offerNote": ""
+    "offerNote": "",
+    "cutout": "/images/products/114-cutout.webp"
   },
   {
     "id": 115,
@@ -328,6 +342,7 @@ export const products = [
       862
     ],
     "freeDelivery": true,
-    "offerNote": "Livraison offerte sur la publication. Offre à confirmer."
+    "offerNote": "Livraison offerte sur la publication. Offre à confirmer.",
+    "cutout": "/images/products/115-cutout.webp"
   }
 ];
