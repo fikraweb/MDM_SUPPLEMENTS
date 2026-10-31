@@ -33,6 +33,6 @@ Après le premier déploiement, ajouter le domaine dans **Custom domains** et su
 
 ## Avant la mise en vente
 
-Les produits, compositions et prix dans `src/main.js` sont des exemples à remplacer par les références vérifiées du catalogue réel. Les images CSS sont des illustrations fictives.
+Les produits, compositions et prix dans `src/main.js` sont des exemples à remplacer par les références vérifiées du catalogue réel. Les images CSS sont des illustrations fictives. Le logo dans `public/images/mdm-logo.svg` est une reproduction vectorielle dessinée à partir de l’image fournie ; il peut être remplacé par le fichier original de la marque.
 
 Le panier sert de démonstration : aucun paiement, commande, stock, livraison ou espace client n’est connecté. Prévoir les informations de l’entreprise, les conditions de vente, les modalités de livraison et la politique de confidentialité avant le lancement commercial. Ne pas activer le paiement avant d’avoir une gestion des commandes et une validation des montants côté serveur.
