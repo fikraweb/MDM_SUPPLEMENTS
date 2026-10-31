@@ -176,3 +176,48 @@ footer>span { color: #c4d4b6; }
   header.site-header { gap: 5px; }
   header nav a { padding: 8px; }
 }
+
+/* Social contacts and a WhatsApp order request from the live cart. */
+.header-actions { display: flex; align-items: center; justify-self: end; gap: 16px; }
+.social-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.header-instagram { display: flex; color: #99b18f; padding: 8px; border-radius: 4px; transition: color .2s, background .2s; }
+.header-instagram:hover { color: #c5f3af; background: #ffffff09; }
+.store-bio { max-width: 330px; color: #b9c6bb; font-size: 12px; line-height: 1.8; }
+.store-bio p:first-child { font-weight: 500; color: #d4dfd0; }
+.store-bio p[lang=ar] { text-align: left; font-size: 15px; color: #91db66; margin-top: 6px; }
+.store-bio>span { display: block; margin-top: 9px; font-size: 11px; color: #9baa9f; }
+.hero-instagram { display: flex; align-items: center; gap: 8px; width: fit-content; margin-top: 20px; color: #8eaa82; font-size: 10px; transition: color .2s; }
+.hero-instagram .social-icon { width: 15px; height: 15px; }
+.hero-instagram:hover { color: #c5f3af; }
+.footer-contact { display: flex; flex-direction: column; gap: 13px; font-size: 11px; color: #b9ccb1; }
+.footer-contact>span>a { color: #e5f5dd; white-space: nowrap; }
+.footer-contact>div { display: flex; gap: 20px; }
+.footer-contact>div>a { display: inline-flex; gap: 7px; align-items: center; font-size: 10px; }
+.footer-contact .social-icon { width: 16px; height: 16px; }
+.footer-contact a:hover { color: #a1ed6b; }
+.whatsapp-checkout { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 16px; margin-top: 20px; border: 1px solid #1b7035; border-radius: 4px; background: #1b7035; color: white; font: 500 12px/1.5 Arial, sans-serif; transition: background .2s; }
+.whatsapp-checkout:hover:not(:disabled) { background: #125c29; }
+.whatsapp-checkout:disabled { background: #dfe5da; border-color: #dfe5da; color: #899280; cursor: not-allowed; }
+.cart-footer .order-demo-note { font-size: 10px; color: #7a826e; padding: 10px 12px; margin-top: 12px; border: 1px solid #dce3d3; border-radius: 3px; }
+.checkout-note { display: block; font-size: 9px; line-height: 1.6; color: #7b876f; margin-top: 9px; text-align: center; }
+.cart-footer .continue { margin-top: 18px; background: transparent; color: #35492c; border: 1px solid #d4ddcb; justify-content: center; padding: 12px; }
+.cart-footer .continue:hover { background: #edf2e8; }
+.whatsapp-float { position: fixed; z-index: 4; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 9px; background: #1b7035; color: white; padding: 14px 18px; border-radius: 30px; font-size: 11px; box-shadow: 0 6px 22px #0c351f30; border: 1px solid #ffffff2e; transition: background .2s; }
+.whatsapp-float:hover { background: #125c29; }
+.whatsapp-float .social-icon { width: 24px; height: 24px; }
+#toast { bottom: 95px; }
+@media (max-width: 1100px) { .header-actions { gap: 8px; } }
+@media (max-width: 760px) {
+  .header-actions { gap: 4px; }
+  .header-instagram { padding: 5px; }
+  .header-instagram .social-icon { width: 17px; height: 17px; }
+  .store-bio { margin: auto; font-size: 11px; }
+  .store-bio p[lang=ar] { text-align: center; font-size: 14px; }
+  .hero-instagram { margin: 18px auto 0; }
+  footer { flex-wrap: wrap; gap: 25px 16px; }
+  .footer-contact { font-size: 10px; gap: 10px; }
+  .footer-contact>div { gap: 14px; }
+  footer>small { width: 100%; max-width: none; text-align: left; padding-right: 55px; }
+  .whatsapp-float { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); padding: 12px; }
+  .whatsapp-float>span { display: none; }
+}
