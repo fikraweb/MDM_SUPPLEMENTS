@@ -16,7 +16,7 @@ npm run build
 npm run preview
 ```
 
-Le build statique est généré dans `dist/`. Aucun secret ni service externe n’est nécessaire. Les illustrations de produits sont réalisées en CSS ; les polices système sont utilisées sans requête externe.
+Le build statique est généré dans `dist/`. Aucun secret ni service externe n’est nécessaire. Les photos du catalogue sont servies localement ; le cadrage CSS masque l’interface Instagram sans modifier les fichiers originaux. Les polices système sont utilisées sans requête externe.
 
 ## Cloudflare Pages
 
@@ -33,13 +33,13 @@ Après le premier déploiement, ajouter le domaine dans **Custom domains** et su
 
 ## Avant la mise en vente
 
-Les produits, compositions et prix dans `src/main.js` sont des exemples à remplacer par les références vérifiées du catalogue réel. Les images CSS sont des illustrations fictives. Le logo dans `public/images/mdm-logo.svg` est une reproduction vectorielle dessinée à partir de l’image fournie ; il peut être remplacé par le fichier original de la marque.
+Le catalogue dans `src/products.js` reprend les 15 photos fournies dans `mdm.zip` : huit tarifs sont transcrits des publications et sept sont des estimations provisoires, explicitement signalées sur le site et dans les demandes WhatsApp. Les détails de provenance et les montants figurent dans [docs/catalogue-prices.md](docs/catalogue-prices.md). Les prix ne sont pas validés en temps réel. Le logo dans `public/images/mdm-logo.svg` est une reproduction vectorielle dessinée à partir de l’image fournie ; il peut être remplacé par le fichier original de la marque.
 
-Le panier reste basé sur un catalogue de démonstration. Le bouton de confirmation ouvre WhatsApp avec un récapitulatif à envoyer manuellement ; le magasin confirme ensuite disponibilité, tarifs, livraison et commande. Aucun paiement, suivi de commande, stock ou espace client n’est connecté. Prévoir les informations de l’entreprise, les conditions de vente, les modalités de livraison et la politique de confidentialité avant le lancement commercial. Ne pas activer le paiement avant d’avoir une gestion des commandes et une validation des montants côté serveur.
+Le panier utilise ce catalogue et signale les prix estimatifs. Le bouton de confirmation ouvre WhatsApp avec un récapitulatif à envoyer manuellement ; le magasin confirme ensuite disponibilité, tarifs, livraison et commande. Aucun paiement, suivi de commande, stock ou espace client n’est connecté. Prévoir les informations de l’entreprise, les conditions de vente, les modalités de livraison et la politique de confidentialité avant le lancement commercial. Ne pas activer le paiement avant d’avoir une gestion des commandes et une validation des montants côté serveur.
 
 ## Visuel du hero
 
-`public/images/hero-products.png` est une image générée à partir de la capture fournie, représentant ISO PRO 100 (MuscleLabs), ISO WHEY ZERO (BioTechUSA) et la créatine monohydrate Applied Nutrition. Il s’agit d’une reconstitution visuelle, pas des photos originales des fabricants. Les mentions figurant sur les emballages générés ne doivent pas servir de source pour les informations produit. Remplacer ce visuel par les photos originales autorisées pour une fidélité exacte avant le lancement commercial. Ces références ne changent pas le catalogue de démonstration.
+`public/images/hero-products.png` est une image générée à partir de la capture fournie, représentant ISO PRO 100 (MuscleLabs), ISO WHEY ZERO (BioTechUSA) et la créatine monohydrate Applied Nutrition. Il s’agit d’une reconstitution visuelle, pas des photos originales des fabricants. Les mentions figurant sur les emballages générés ne doivent pas servir de source pour les informations produit. Remplacer ce visuel par les photos originales autorisées pour une fidélité exacte avant le lancement commercial. Le catalogue utilise les images originales fournies dans le ZIP ; le visuel du hero demeure une reconstitution.
 
 ## WhatsApp et Instagram
 

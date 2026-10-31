@@ -221,3 +221,37 @@ footer>span { color: #c4d4b6; }
   .whatsapp-float { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); padding: 12px; }
   .whatsapp-float>span { display: none; }
 }
+
+/* Original supplied photos, framed with CSS to show only the product panel. */
+.product-art.product-art-photo { --photo-height: 360px; height: var(--photo-height); padding: 0; background: #e9ebe5; }
+.product-art-photo::after { display: none; }
+.product-photo { position: relative; overflow: hidden; height: 100%; width: calc(var(--photo-ratio) * var(--photo-height)); max-width: 100%; flex-shrink: 1; }
+.product-photo img { position: absolute; max-width: none; object-fit: fill; }
+.product-price-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 13px; }
+.product-price-line .price { margin: 0; }
+.price-origin { font-size: 8px; color: #6d7a62; padding: 4px 7px; border: 1px solid #d9e2d0; border-radius: 3px; }
+.price-origin.estimated { color: #8b642c; background: #fcf3e3; border-color: #ecdfc5; }
+.offer-note { color: #647b52; font-size: 9px; margin-top: 10px; line-height: 1.6; }
+.product-info>div { min-width: 0; }
+.product-info h3 { line-height: 1.4; }
+.product-info p { line-height: 1.6; }
+.cart-mini { --photo-height: 95px; }
+.cart-mini .product-photo { height: 100%; }
+.cart-detail { min-width: 0; }
+.cart-detail small { display: block; line-height: 1.5; }
+.cart-detail .cart-price-estimate { color: #956522; font-size: 9px; margin-top: 5px; }
+.cart-row>div:last-child { flex-shrink: 0; max-width: 80px; }
+@media (max-width: 1100px) { .catalog-tools { align-items: flex-start; } .filters { flex: 1; } }
+@media (max-width: 600px) {
+  .product-art.product-art-photo { --photo-height: 260px; }
+  .product-info h3 { font-size: 11px; min-height: 31px; }
+  .product-info p { font-size: 9px; }
+  .product-price-line { gap: 6px; }
+  .price-origin { font-size: 7px; padding: 4px 5px; }
+  .offer-note { font-size: 8px; }
+  .category { font-size: 8px; line-height: 1.5; display: block; }
+}
+.products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.product { min-width: 0; }
+.product-photo { height: auto; aspect-ratio: var(--photo-ratio); }
+@media (max-width: 600px) { .products { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
