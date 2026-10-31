@@ -1,1 +1,21 @@
-{"name":"mdm-supplements","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0"},"devDependencies":{"vite":"^7.3.0"}}
+{
+  "name": "mdm-supplements",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "dev:worker": "wrangler dev --env local --local --port 8787",
+    "db:migrate": "wrangler d1 migrations apply mdm-store-local --env local --local",
+    "db:migrate:remote": "wrangler d1 migrations apply mdm-store --remote",
+    "deploy": "node scripts/deploy.mjs",
+    "setup:local": "node scripts/local-setup.mjs",
+    "test:integration": "node --test tests/integration.mjs"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0",
+    "wrangler": "^4.156.0"
+  }
+}
