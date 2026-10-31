@@ -18,28 +18,75 @@ header nav a:hover { color: var(--mdm-green); text-decoration: none; }
 .cart-trigger { border-color: #d4ddce; border-radius: 4px; background: transparent; }
 .cart-trigger:hover { border-color: var(--mdm-green); }
 #count { background: #e4efda; color: #1b5013; font-weight: 700; border-radius: 3px; }
-.editorial-hero { padding: 0 6%; background: #fafbf8; }
-.editorial-intro { position: relative; text-align: center; padding: 52px 0 38px; }
-.editorial-eyebrow { display: flex; justify-content: center; align-items: center; gap: 9px; font-size: 8px; font-weight: 600; letter-spacing: 2px; color: #718068; }
-.editorial-eyebrow>span { width: 5px; height: 5px; background: var(--mdm-green); border-radius: 50%; }
-.editorial-intro h1 { font: 500 clamp(44px, 5.1vw, 73px)/1.02 Arial, Helvetica, sans-serif; letter-spacing: -3.5px; margin: 22px 0 18px; }
-.editorial-intro h1 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; color: #328c27; letter-spacing: -3px; }
-.editorial-intro>p { font-size: 12px; line-height: 1.8; color: #7b8475; }
-.shop-link { display: inline-flex; align-items: center; justify-content: center; gap: 25px; margin-top: 23px; padding: 14px 21px; font-size: 11px; font-weight: 600; background: #18281a; color: #fff; border-radius: 3px; transition: background .2s; }
-.shop-link:hover { background: #277b20; }
-.intro-index { position: absolute; right: 0; bottom: 42px; font-size: 8px; letter-spacing: 1.5px; color: #96a28e; writing-mode: vertical-rl; }
-.product-showcase { position: relative; overflow: hidden; margin: 0; height: 480px; isolation: isolate; background: radial-gradient(ellipse at 50% 100%, #112d50 0%, #060a10 65%); border-radius: 8px; }
-.showcase-image { display: block; width: 100%; height: 100%; object-fit: contain; max-width: 880px; margin: auto; }
-.showcase-caption, .showcase-footer { position: absolute; z-index: 1; left: 28px; right: 28px; display: flex; justify-content: space-between; pointer-events: none; font-size: 7px; letter-spacing: 1.8px; color: #a3adb8; }
-.showcase-caption { top: 25px; }
-.showcase-caption>span:first-child { color: #eff2f5; }
-.showcase-footer { bottom: 23px; color: #abb7c2; font-size: 6px; letter-spacing: 1.5px; }
-.hero-product-line { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 20px; padding-bottom: 35px; gap: 24px; }
-.hero-product-line>div { display: flex; gap: 13px; align-items: center; border-top: 1px solid #dce3d5; padding-top: 19px; }
-.item-number { color: #a2ad99; font-size: 9px; align-self: start; margin-top: 2px; }
-.hero-product-line small { display: block; color: #86917d; font-size: 7px; letter-spacing: 1.5px; }
-.hero-product-line h2 { font: 500 13px/1.3 Arial, sans-serif; letter-spacing: -.2px; margin-top: 6px; }
-.item-category { margin-left: auto; font-size: 6px; letter-spacing: 1px; color: #7f8b76; border: 1px solid #dce5d4; padding: 5px 6px; border-radius: 3px; white-space: nowrap; }
+.campaign-hero {
+  background: #060b11;
+  color: #f7faf5;
+  overflow: hidden;
+}
+.campaign-inner {
+  max-width: 1500px;
+  margin: auto;
+  padding: 26px 6%;
+  min-height: 500px;
+  height: min(640px, calc(100svh - 100px));
+  display: grid;
+  grid-template-columns: 57% 43%;
+  align-items: center;
+  background: radial-gradient(ellipse at 29% 62%, #112b493d, transparent 58%);
+}
+.campaign-art {
+  position: relative;
+  margin: 0 24px 0 -22px;
+  height: 100%;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 54px;
+}
+.campaign-art-label {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  font-size: 7px;
+  letter-spacing: 1.8px;
+  color: #95a2ae;
+}
+.campaign-products {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+.campaign-seal {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 112px;
+  height: 112px;
+  filter: drop-shadow(0 8px 16px #0009);
+}
+.campaign-art figcaption {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #9ba8b5;
+  font-size: 6px;
+  letter-spacing: 1.8px;
+}
+.campaign-copy { padding: 0 0 4px 26px; }
+.campaign-eyebrow { display: flex; align-items: center; gap: 9px; font-size: 8px; font-weight: 600; letter-spacing: 2px; color: #b6c5b1; }
+.campaign-eyebrow>span { width: 5px; height: 5px; border-radius: 50%; background: #90de56; }
+.campaign-copy h1 { font: 500 clamp(39px, 4.25vw, 64px)/1.02 Arial, Helvetica, sans-serif; letter-spacing: -2.6px; margin: 23px 0 22px; }
+.campaign-copy h1 em { color: #91db66; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -2px; }
+.campaign-copy>p { max-width: 300px; font-size: 12px; line-height: 1.9; color: #a2adb4; }
+.shop-link { display: inline-flex; align-items: center; justify-content: center; gap: 25px; margin-top: 27px; padding: 16px 23px; font-size: 11px; font-weight: 600; background: #99e574; color: #12210c; border-radius: 3px; transition: background .2s; }
+.shop-link:hover { background: #b6f496; }
+.campaign-signature { display: flex; align-items: center; gap: 10px; margin-top: 30px; font-size: 6px; letter-spacing: 1.5px; color: #738777; }
+.campaign-signature>span { width: 22px; height: 1px; background: #648455; }
 .jar-brand { height: 38px; display: flex; align-items: center; justify-content: center; }
 .jar-brand img { width: 51px; height: 51px; object-fit: contain; }
 .jar-label { margin-top: 9px; }
@@ -57,38 +104,34 @@ footer { background: #0b0e0c; color: #ebf1e4; border-color: #242d1f; }
 footer>.logo img { width: 76px; height: 76px; }
 footer>small { color: #9ba891; }
 footer>span { color: #c4d4b6; }
-@media (min-width: 1500px) { .editorial-hero { max-width: 1500px; margin: auto; } }
 @media (max-width: 1100px) {
-  .item-category { display: none; }
-  .product-showcase { height: 430px; }
+  .campaign-inner { grid-template-columns: 55% 45%; }
+  .campaign-copy { padding-left: 18px; }
+  .campaign-copy h1 { font-size: 4.5vw; letter-spacing: -2px; }
+  .campaign-seal { width: 100px; height: 100px; bottom: 38px; }
+  .campaign-art { margin-right: 5px; }
 }
 @media (max-width: 760px) {
   header { height: 86px; }
   .logo img { width: 68px; height: 68px; }
   header nav { font-size: 11px; gap: 20px; }
-  .editorial-intro { padding: 35px 0 27px; }
-  .editorial-eyebrow { font-size: 6px; letter-spacing: 1.5px; gap: 7px; }
-  .editorial-intro h1 { font-size: clamp(36px, 7.8vw, 56px); letter-spacing: -1.9px; margin: 20px 0 17px; }
-  .editorial-intro h1 em { letter-spacing: -1.8px; }
-  .editorial-intro>p { font-size: 11px; line-height: 1.8; }
-  .intro-index { display: none; }
-  .shop-link { margin-top: 21px; padding: 13px 19px; font-size: 10px; }
-  .product-showcase { height: auto; aspect-ratio: 1.35; border-radius: 5px; }
-  .showcase-image { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .showcase-caption, .showcase-footer { left: 12px; right: 12px; font-size: 5px; letter-spacing: .7px; }
-  .showcase-caption { top: 13px; }
-  .showcase-footer { bottom: 11px; font-size: 4px; letter-spacing: .6px; }
-  .hero-product-line { gap: 10px; margin-top: 14px; padding-bottom: 23px; }
-  .hero-product-line>div { gap: 5px; align-items: start; padding-top: 13px; }
-  .item-number { font-size: 6px; }
-  .hero-product-line small { font-size: 5px; letter-spacing: .5px; min-height: 12px; }
-  .hero-product-line h2 { font-size: 9px; line-height: 1.5; margin-top: 3px; letter-spacing: -.1px; }
+  .campaign-inner { height: auto; min-height: unset; padding: 22px 6% 32px; grid-template-columns: 1fr; gap: 18px; }
+  .campaign-art { height: auto; min-height: unset; margin: 0; padding: 15px 0 57px; }
+  .campaign-products { width: 100%; height: auto; }
+  .campaign-art-label { top: 0; left: 0; font-size: 6px; }
+  .campaign-seal { width: 87px; height: 87px; bottom: 10px; }
+  .campaign-art figcaption { bottom: 0; font-size: 5px; letter-spacing: 1.4px; }
+  .campaign-copy { padding: 0; text-align: center; }
+  .campaign-eyebrow { justify-content: center; font-size: 7px; }
+  .campaign-copy h1 { font-size: clamp(35px, 8.7vw, 54px); letter-spacing: -1.8px; margin: 17px 0; }
+  .campaign-copy h1 em { letter-spacing: -1.4px; }
+  .campaign-copy h1 em br { display: none; }
+  .campaign-copy>p { margin: auto; max-width: 320px; font-size: 11px; line-height: 1.8; }
+  .shop-link { margin-top: 22px; font-size: 10px; padding: 14px 20px; }
+  .campaign-signature { justify-content: center; margin-top: 24px; font-size: 5px; }
   footer>.logo img { width: 65px; height: 65px; }
 }
 @media (max-width: 380px) {
-  .editorial-intro h1 { font-size: 10vw; letter-spacing: -1.6px; }
-  .editorial-intro h1 em { letter-spacing: -1.6px; }
-  .editorial-intro>p { font-size: 10px; }
-  .hero-product-line small { font-size: 4.5px; }
-  .hero-product-line h2 { font-size: 8px; }
+  .campaign-copy h1 { font-size: 8.5vw; }
+  .campaign-seal { width: 76px; height: 76px; }
 }
