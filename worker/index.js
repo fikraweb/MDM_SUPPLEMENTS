@@ -1,3 +1,4 @@
+import { initializeDatabase, databaseReady, missingSchema } from './database.js';
 import { products as initialProducts } from '../src/products.js';
 const encoder = new TextEncoder();
 const defaults = { storeName:'MDM Supplements', phone:'0618194707', instagram:'https://www.instagram.com/mdm_supplements/', freeShipping:true, shippingFee:0, orderNotice:'Paiement à la livraison. Livraison offerte partout au Maroc.' };
@@ -34,6 +35,7 @@ function imageUrl(value){const url=str(value,'Image',500);if(/^\/images\/[a-zA-Z
 function product(row){return {...JSON.parse(row.data_json),id:row.id,name:row.name,brand:row.brand,category:row.category,detail:row.detail,price:row.price_cents/100,priceSource:row.price_source,stock:row.stock,active:!!row.active,revision:row.revision};}
 async function settings(env){const row=await env.DB.prepare('SELECT data_json FROM settings WHERE id=1').first();return {...defaults,...(row?JSON.parse(row.data_json):{})};}
 async function rateLimit(request,env,scope,max){
+ if(scope==='login')await env.DB.prepare('CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY,hits INTEGER NOT NULL,expires_at INTEGER NOT NULL)').run();
  const bucket=Math.floor(Date.now()/900_000);const ip=request.headers.get('CF-Connecting-IP')||'local';const key=await hash(`${env.SESSION_SECRET||'mdm-local'}:${scope}:${ip}:${bucket}`);
  const row=await env.DB.prepare('INSERT INTO rate_limits(key,hits,expires_at) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET hits=hits+1 RETURNING hits').bind(key,(bucket+1)*900_000).first();if(row.hits>max)fail(429,'Trop de tentatives. Réessayez dans quelques minutes.');
  if(Math.random()<.02)await env.DB.prepare('DELETE FROM rate_limits WHERE expires_at<?').bind(Date.now()).run();
@@ -69,14 +71,14 @@ async function handle(request,env){
  if(!path.startsWith('/api/'))return env.ASSETS.fetch(request);
  if(path==='/api/catalog'&&method==='GET'){
   if(!configured(env))return json({products:initialProducts,settings:defaults,checkoutEnabled:false});
-  const rows=await env.DB.prepare('SELECT * FROM products WHERE active=1 ORDER BY id').all();return json({products:rows.results.map(product),settings:await settings(env),checkoutEnabled:true});
+  try{if(!await databaseReady(env.DB))return json({products:initialProducts,settings:defaults,checkoutEnabled:false});const rows=await env.DB.prepare('SELECT * FROM products WHERE active=1 ORDER BY id').all();return json({products:rows.results.map(product),settings:await settings(env),checkoutEnabled:true});}catch(error){if(missingSchema(error))return json({products:initialProducts,settings:defaults,checkoutEnabled:false});throw error;}
  }
  if(!configured(env))fail(503,'Le service de commandes est en cours de configuration. Réessayez plus tard.');
- if(path==='/api/orders'&&method==='POST')return createOrder(request,env);
+ if(path==='/api/orders'&&method==='POST'){if(!await databaseReady(env.DB))fail(503,'La prise de commandes est en cours de préparation. Réessayez plus tard.');return createOrder(request,env);}
  if(!path.startsWith('/api/admin/'))fail(404,'Route introuvable.');
- if(path==='/api/admin/session'&&method==='GET')return json({authenticated:await authenticated(request,env),configured:authConfigured(env)});
+ if(path==='/api/admin/session'&&method==='GET')return json({authenticated:await authenticated(request,env)&&await databaseReady(env.DB),configured:authConfigured(env)});
  if(path==='/api/admin/login'&&method==='POST'){
-  sameOrigin(request);if(!authConfigured(env))fail(503,'L’accès administrateur doit être configuré dans Cloudflare.');await rateLimit(request,env,'login',10);const data=await body(request);const supplied=str(data.password,'Mot de passe',500);const actual=await hash(env.ADMIN_PASSWORD);const given=await hash(supplied);let different=actual.length^given.length;for(let i=0;i<actual.length;i++)different|=actual.charCodeAt(i)^given.charCodeAt(i);if(different)fail(401,'Mot de passe incorrect.');return json({ok:true},200,{'Set-Cookie':cookie(request,await session(env),8*3600)});
+  sameOrigin(request);if(!authConfigured(env))fail(503,'L’accès administrateur doit être configuré dans Cloudflare.');await rateLimit(request,env,'login',10);const data=await body(request);const supplied=str(data.password,'Mot de passe',500);const actual=await hash(env.ADMIN_PASSWORD);const given=await hash(supplied);let different=actual.length^given.length;for(let i=0;i<actual.length;i++)different|=actual.charCodeAt(i)^given.charCodeAt(i);if(different)fail(401,'Mot de passe incorrect.');await initializeDatabase(env.DB);return json({ok:true},200,{'Set-Cookie':cookie(request,await session(env),8*3600)});
  }
  if(!await authenticated(request,env))fail(401,'Connexion administrateur requise.');
  if(!['GET','HEAD'].includes(method))sameOrigin(request);
@@ -114,4 +116,4 @@ async function handle(request,env){
  }
  fail(404,'Route introuvable.');
 }
-export default {async fetch(request,env){try{return await handle(request,env);}catch(error){if(error instanceof HttpError)return json({error:error.message},error.status);console.error('Store API error',error.name);return json({error:'Le service est temporairement indisponible. Réessayez dans quelques instants.'},503);}}};
+export default {async fetch(request,env){try{return await handle(request,env);}catch(error){if(error instanceof HttpError)return json({error:error.message},error.status);const schemaMissing=missingSchema(error);console.error('Store API error',{kind:schemaMissing?'schema_missing':'database_unavailable',route:new URL(request.url).pathname});return json({error:schemaMissing?'La base du magasin doit être préparée. Connectez-vous à l’administration avec le mot de passe du magasin.':'Connexion à la base du magasin impossible. Vérifiez le binding D1 DB du Worker et les journaux Cloudflare.',code:schemaMissing?'DATABASE_SCHEMA_MISSING':'DATABASE_UNAVAILABLE'},503);}}};

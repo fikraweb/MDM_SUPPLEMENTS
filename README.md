@@ -23,9 +23,9 @@ npm run test:integration # Worker local démarré requis
 
 ## Production Cloudflare
 
-**Lire [docs/dashboard-setup.md](docs/dashboard-setup.md).** Le déploiement est maintenant un Worker avec base D1, et non un hébergement statique seul. L’ID D1 fourni est configuré dans `wrangler.jsonc`. Les migrations distantes, les secrets `ADMIN_PASSWORD` et `SESSION_SECRET` et le déploiement doivent être activés dans le compte Cloudflare du propriétaire.
+**Lire [docs/dashboard-setup.md](docs/dashboard-setup.md).** Le déploiement est maintenant un Worker avec base D1, et non un hébergement statique seul. L’ID D1 fourni est configuré dans `wrangler.jsonc`. Les secrets `ADMIN_PASSWORD` et `SESSION_SECRET` et le déploiement doivent être activés dans le compte Cloudflare du propriétaire. La première connexion administrateur valide prépare automatiquement les tables manquantes sans remplacer les données.
 
-Commande de déploiement : `npm run deploy` (construction, migrations D1 distantes, déploiement). Les secrets restent dans Cloudflare. Ne jamais les écrire dans le code ou les transmettre dans le chat.
+Commande de déploiement : `npm run deploy` (construction et déploiement). Les migrations D1 sont appliquées à la première connexion administrateur valide ; une migration CLI explicite reste possible. Les secrets restent dans Cloudflare. Ne jamais les écrire dans le code ou les transmettre dans le chat.
 
 Le travail de cette session valide le fonctionnement local ; il ne constitue pas une validation de production. En cas de base non configurée ou indisponible, aucune commande n’est déclarée enregistrée et les coordonnées ne sont pas stockées dans le navigateur.
 
